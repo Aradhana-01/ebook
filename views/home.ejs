@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>login page</title>
+    <!--script code-->
+    <script type="text/javascript">
+        function redirectAuthorToLogin() {
+            location.href = "/login";
+        }
+
+        function redirectAuthorToSignup() {
+            location.href = "/register";
+        }
+
+        function redirectAdminToLogin() {
+            location.href = "/adminlogin";
+        }
+
+        function redirectAdminToSignup() {
+            location.href = "/adminregister";
+        }
+        function redirectAdminToLogout() {
+            location.href = "/adminlogout";
+        }
+        //  function redirectAuthortomain() {
+        //     location.href = "/login";
+        //     //  alert("Login here to continue creatin ebook");
+        // }
+
+        var words = ['Make it interactive','Make it collaborative','Make it Make it beautiful','Make it stand-out'],
+        part,
+        i=0,
+        offset =0,
+        len = words.length,
+        forwards = true,
+        skip_count = 0,
+        skip_delay = 15,
+        speed = 70;
+        var wordflick = function(){
+            setInterval(function(){
+                if(forwards){
+                    if(offset >= words[i].length) {
+                        ++skip_count;
+                        if(skip_count == skip_delay){
+                            forwards = false;
+                            skip_count = 0;
+
+                        }
+                    }
+                }
+                else{
+                    if(offset == 0){
+                        forwards  = true;
+                        i++;
+                        offset = 0;
+                        if(i >= len) {
+                            i = 0;
+                        }
+                    }
+                }
+                part = words[i].substr(0,offset);
+                if(skip_count == 0){
+                    if(forwards){
+                        offset++;
+
+                    }
+                    else{
+                        offset--;
+                    }
+                }
+                $('.word').text(part);
+            
+            },speed);
+
+        };
+        $(document).ready(function(){
+            wordflick();
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <!-- 
+
+nav bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark navbar-inverse navbar-fixed-top" data-bs-theme="dark">
+
+        <div class="container-fluid  ">
+
+            <img src="/images/e-book-logo.jpg" class="img1 navbar-brand" style="height:10%;width:15%;" alt=""
+                id="logooo">
+            <div class="row me-auto mb-2 mb-lg-0 " id="logo">
+                <div class="col-md-12">
+                    <h2><i><a href="#"
+                                style="color:rgb(245, 238, 237) ;font-style: italic;font-family: 'Times New Roman', Times, serif;font-weight: 800;text-decoration: none;">Erudite</a></i>
+                    </h2>
+                    <p style="font-size: xx-small;">e-book creator</p>
+                </div>
+            </div>
+
+
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                &emsp;&emsp;&emsp; <!--add 4 space-->
+                <ul class="navbar-nav me-auto  mb-2 mb-lg-0  d-flex justify-content-center links"
+                    style="margin-right: 30px;">
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link active links" aria-current="page" href="#"><i class="bi bi-house-fill">
+                                &nbsp; </i>Home</a>
+                    </li>&emsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-telephone-fill">&nbsp;</i>Contact Us</a>
+                    </li>&emsp;
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1">Login</button>&nbsp;
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">Sign-Up</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hey there!! Already have an Account? Login here</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+
+                        <button type="button" class="btn btn-secondary" onclick="redirectAdminToLogin() ">Login as
+                            Admin</button>
+                        <!-- <form action="/login">-->
+                        <button type="button" class="btn btn-secondary" onclick="redirectAuthorToLogin()">Login As
+                            Author</button>
+                        <!---    </form> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> New to Erudite ? Join the Writer's-Hub now!!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+
+                        <button type="button" class="btn btn-secondary" onclick="redirectAdminToSignup()">Sign-up as
+                            Admin</button>
+                        <button type="button" class="btn btn-secondary" onclick="redirectAuthorToSignup()">Sign-up As
+                            Author</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Login here to continue creating ebook.</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-2">
+
+                        <button type="button" class="btn btn-secondary" onclick="redirectAuthorToLogin()">Login Here</button>
+        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel-->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/carousel1-black-white.jpg" id="dim" class="d-block w-100" width=1400 height=500
+                    alt="...">
+                <div class="carousel-caption ">
+                    <h2 class="firstheader" id="animatecharacter">Online E-book Creator</h2>
+                    <p class="para d-none d-lg-block "> Create ebook with a few clicks. Convert your PDF into an interactive ebook with a realistic page
+                        turn effect. Publish your ebook online and analyze how your readers interact with your content.
+                    </p>
+                    <button class="btn btn-primary btncolor "  data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3">Create your E-book</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/laptop_book.jpg"  class="d-block w-100" width=1400 height=500 alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <button class="btn btn-primary btncolor"  data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3">Create your E-book</button>
+                   <div class="word"></div>
+       
+ 
+                  
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/pone_library.jpg"  class="d-block w-100" width=1400 height=500 alt="..." style="opacity: 0.4;">
+                <div class="carousel-caption ">
+                   <h3 id="animatecharacter"> Create your own <b>E-LIBRARY</b></h3><br><br><br><br>
+                   <div class=" d-md-none ">
+                    <div class="waviy">
+                        <span style="--i:1">C</span>
+                        <span style="--i:2">L</span>
+                        <span style="--i:3">I</span>
+                        <span style="--i:4">C</span>
+                        <span style="--i:5">K</span>
+                        <span style="--i:6"> </span><br>
+                        <span style="--i:7">H</span>
+                        <span style="--i:8">E</span>
+                        <span style="--i:9">R</span>
+                        <span style="--i:10">E</span>
+                       
+                    </div>
+                </div>
+                <div class=" d-none d-md-block">
+                    <div class="waviy">
+                        <span style="--i:1">C</span>
+                        <span style="--i:2">L</span>
+                        <span style="--i:3">I</span>
+                        <span style="--i:4">C</span>
+                        <span style="--i:5">K</span>
+                        <span style="--i:6"> </span>
+                        <span style="--i:7">H</span>
+                        <span style="--i:8">E</span>
+                        <span style="--i:9">R</span>
+                        <span style="--i:10">E</span>
+                       
+                    </div>
+                </div>
+                    <br><br><br>
+                    <!-- <h5>Click here to  </h5> -->
+   
+                    <button class="btn btn-primary btncolor"  data-bs-toggle="modal"
+                    data-bs-target="#exampleModal3">Create your E-book</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-right">
+  
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+  
+        </div>
+  
+        <div class="footer-left">
+  
+          <p class="footer-links">
+            <a class="link-1" href="#">Home</a>
+  
+            <a href="#">Contact Us</a>
+  
+            <a href="#">About</a>
+  
+            <a href="#">Faq</a>
+  
+            <a href="#">Contact</a>
+          </p><br>
+          <hr style="color:grey;height: 15px;margin-top: 0px;"  >
+          <p><b>Erudite</b> &copy; 2023</p>
+        </div>
+  
+      </footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
